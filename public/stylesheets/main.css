@@ -1,14 +1,10 @@
 @font-face {
-font-family: helvetica;
-src: url("../fonts.otf") format("opentype");
-}
-*{
 	font-family: helvetica;
-	padding: 0;
-	margin: 0;
+	src: url("../fonts.otf") format("opentype");
 }
+*{padding: 0;margin: 0;}
 body{
-
+	font-family: helvetica;
 }
 .header{
 	width: 100%;
@@ -20,11 +16,10 @@ body{
 .clear{
 	clear: both;
 }
-.header ul.nav{
+.header ul.nav, ul.user li{
 	display: inline-block;
-	
 }
-.header ul.nav li{	
+.header ul.nav li{
 	list-style: none;
 	display: inline-block;
 	padding:18px 40px 15px 40px; 
@@ -39,34 +34,41 @@ body{
 	transition:.8s;
 	color: #68BAFF; 
 }
-.user ul li {
-	vertical-align: middle;
-list-style-type: none;	
-}
-.user{
-
-	display: inline-block;
+ul.user{
 	float: right;
-	vertical-align: middle;
+	padding: 7px 0;
 }
-.user a{
+ul.user li {
+	vertical-align: middle;
+	list-style-type: none;
+	display: inline-block;
+}
+ul.user li  a{
 	text-decoration: none;
 	color: white;
 	padding-right: 10px;
+}
+ul.user li  a.username{
+}
+.user img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
 }
 .log-out img{
 	width: 20px;
 	height: 20px;
 }
-.user img{
-	width: 40px;
-	height: 40px;
-	margin: 8px 20px 0 0;
-	border-radius: 50%	
-}
-@media all and (max-width:530px){
-	.header ul li {
-		display: block;
+
+@media (max-width:768px){
+	.header ul{
+		width: 100%;
 		text-align: center;
+		padding: none
+	}
+	.header ul.nav li{
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
