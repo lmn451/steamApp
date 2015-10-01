@@ -1,0 +1,72 @@
+@font-face {
+font-family: helvetica;
+src: url("../fonts.otf") format("opentype");
+}
+*{
+	font-family: helvetica;
+	padding: 0;
+	margin: 0;
+}
+body{
+
+}
+.header{
+	width: 100%;
+	list-style: none;
+	color: white;
+	background: #181A37;
+	display: inline-block;	
+}
+.clear{
+	clear: both;
+}
+.header ul.nav{
+	display: inline-block;
+	
+}
+.header ul.nav li{	
+	list-style: none;
+	display: inline-block;
+	padding:18px 40px 15px 40px; 
+}
+.header ul.nav li a{
+	color: white;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 15pt;
+}
+.header ul.nav li a:hover{
+	transition:.8s;
+	color: #68BAFF; 
+}
+.user ul li {
+	vertical-align: middle;
+list-style-type: none;	
+}
+.user{
+
+	display: inline-block;
+	float: right;
+	vertical-align: middle;
+}
+.user a{
+	text-decoration: none;
+	color: white;
+	padding-right: 10px;
+}
+.log-out img{
+	width: 20px;
+	height: 20px;
+}
+.user img{
+	width: 40px;
+	height: 40px;
+	margin: 8px 20px 0 0;
+	border-radius: 50%	
+}
+@media all and (max-width:530px){
+	.header ul li {
+		display: block;
+		text-align: center;
+	}
+}
