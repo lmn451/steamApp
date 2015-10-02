@@ -6,11 +6,41 @@ var steamApi = require('../core/steamapi');
 router.get('/', function(req, res, next) {
 
 
+    // check authorisation
+    var logined = true;
+    var loginedSteamId = "76561198054996171";
 
-  steamApi.GetRecentlyPlayedGames(function (data) {
+    if (logined){
+        var player;
+        var playerGames;
+        var playerFriends;
 
-    res.render('index', {title: 'Express', data: data});
-  });
+        var response = function () {
+            if (player && playerGames && playerFriends) {
+                res.render('resent', {title: 'Recent games', player: player, games: playerGames, friends: playerFriends});
+            }
+        };
+
+        steamApi.getPlayerSummaries([loginedSteamId], function(players){
+            player = players[0];
+            response();
+        });
+
+        steamApi.getRecentlyPlayedGames(loginedSteamId, function (games) {
+            playerGames = games;
+            response();
+        });
+
+        steamApi.getFriendList(loginedSteamId,function(friends){
+            playerFriends = friends;
+            response();
+        });
+
+    } else{
+
+    }
+
+
 
 });
 

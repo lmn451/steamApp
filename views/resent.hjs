@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <h3>{{ player.personaname }}</h3>
+    <img src="{{ player.avatarfull }}"/>
+    <div>{{ player.realname }} {{ player.profileurl }} last online at {{ player.lastlogoff }}</div>
+    <h1>{{ title }}</h1>
+    <div>
+    <h3>Games from account {{ player.steamid }}</h3>
+    {{#games}}
+        <div>{{appid}} {{name}} {{playtime_2weeks}} {{playtime_forever}}</div>
+    {{/games}}
+    </div>
+    <div>
+    <h3>Friends from account {{ player.steamid }}</h3>
+        {{#friends}}
+            <div>{{steamid}}</div>
+        {{/friends}}
+    </div>
+  </body>
+</html>
