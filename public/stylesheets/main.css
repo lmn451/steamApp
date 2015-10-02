@@ -1,27 +1,26 @@
 @font-face {
-	font-family: helvetica;
+	font-family: 'Helvetica';
 	src: url("../fonts.otf") format("opentype");
 }
 *{padding: 0;margin: 0;}
 body{
-
 	font-family: helvetica;
 	background: #393F6B;
+	color: white;
+}
+.container{
+	max-width: 1400px;
+	margin: 0 auto;
 }
 .header{
 	width: 100%;
-	list-style: none;
-	color: white;
 	background: #181A37;
 	display: inline-block;	
-}
-.header ul.nav, ul.user li{
-	display: inline-block;
 }
 .header ul.nav li{
 	list-style: none;
 	display: inline-block;
-	padding:18px 40px 15px 40px; 
+	padding:18px 40px 15px 40px;
 }
 .header ul.nav li a{
 	color: white;
@@ -31,7 +30,10 @@ body{
 }
 .header ul.nav li a:hover{
 	transition:.8s;
-	color: #68BAFF; 
+	color: #68BAFF;
+}
+.header ul.nav, ul.user li{
+	display: inline-block;
 }
 ul.user{
 	float: right;
@@ -39,38 +41,30 @@ ul.user{
 }
 ul.user li {
 	vertical-align: middle;
-	list-style-type: none;
 	display: inline-block;
 }
-ul.user li  a{
+ul.user li a{
 	text-decoration: none;
 	color: white;
 	padding-right: 10px;
 }
-
 .user img{
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-}
-.log-out img{
-	width: 20px;
-	height: 20px;
 }
 .favourites img{
 	width: 20px;
 	height: 20px;
 }
 .favourites{
-	width: 100%;
 	background:#272A4E; 
 }
-
 .favourites ul li a{
 	text-decoration: none;
 	color: white;
 }
-.favourites ul li {
+.favourites ul li{
 	display: inline-block;
 	padding: 7px 10px 5px;
 }
@@ -83,51 +77,70 @@ span.gamename{
 	margin-top: -10px;
 	display: inline-block;
 }
-span.fav{
+span.two-weeks{
 	display: inline-flex;
 	vertical-align: middle;
  	text-shadow: .5px .3px .3px #68BAFF;
 	color: #68BAFF;
-	padding:0 0 10px 10px;
-
+	padding:0 0 10px 40px;
 }
 .content{
-	background: #242246;
 	margin: 0 auto;
 	max-width: 960px;
-	color: white;
-	padding-top: 50px;
-	padding-left: 100px;
-}
-h1{
-	padding:0;
-	margin: 0;	
-	display: inline-block;
-	font-weight: 100;
-}
-.content p{
-	display: inline-block;
-	padding: 10px 0;	
-	margin: -1px 0 0 48px;	
-	display: block;	
+	padding: 50px 0 0 100px;
 }
 img.game_icon{
-	width: 40px;
-	height: 40px;
-	margin-top: 0px;
-	vertical-align: middle;
-	padding-right: 5px;
+	width: 60px;
+	height: 60px;
+	vertical-align: top;
+	margin-right: 10px;
+	float: left;
+}
+.current-info{
+	display: block;
+}
+span.current-game{
+	font-weight: 100;
+	font-size: 2em;
+}
+span.played{
+	display: block;
+	font-size: 15px;
+
+}
+.else{
+	margin: 20px 0;
+}
+.content p{
+	padding: 15px 0;
 }
 img.graph{
 	width: 768px;
 	height: 300px;
 	padding: 20px 0;
 }
+span.title{
+	font-size: 1.5em;
+}
+ul.playing_friends li{
+	display: inline-block;
+	margin: 20px 10px;
+}
+ul.playing_friends li:first-child{
+	margin-left: 0;
+}
+ul.playing_friends li img{
+	width: 30px;
+	height: 30px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
 @media (max-width:768px){
 	.header ul{
 		width: 100%;
 		text-align: center;
-		padding: none;
+		padding: 0;
 	}
 	.header ul.nav li{
 		width: 100%;
@@ -139,7 +152,7 @@ img.graph{
 		text-align: center;
 		padding:0;
 	}
-	span.fav{
+	span.two-weeks{
 		display: block;
 		margin: 0 auto;
 		padding: 10px 0;

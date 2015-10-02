@@ -6,31 +6,53 @@
 	<link rel="stylesheet" href="../public/stylesheets/main.css">
 </head>
 <body>
+
 	<div class="header">
+		<div class="container">
 			<ul class="nav">
 				<li><a href="">Store</a></li>
 				<li><a href="">Library</a></li>
 				<li><a href="">Community</a></li>
 			</ul>
 			<ul class="user">
-				<li><a href=""><img src="../public/stylesheets/smile.png" alt=""></a></li>
+				<li><a href=""><img src="/" alt=""></a></li>
 				<li><a href="" class="username">Pit Graham</a></li>
-				<li><a href=""><img src="../public/stylesheets/log-out.png" alt=""></a></li>
+				<li><a href=""><img src="../public/img/log-out.png" alt=""></a></li>
 			</ul>
+		</div>
 	</div>
 	<div class="favourites">
-		<span class="fav">Games you played last 2 weeks :</span>
-		<ul class="fvr">
-				<li><a href=""><img src="../public/stylesheets/dota.jpg" alt=""><span class="gamename">Dota 2</span></a></li>
-				<li><a href=""><img src="../public/stylesheets/dota.jpg" alt=""><span class="gamename">Dota 2</span></a></li>
-		</ul>
+		<div class="container">
+			<span class="two-weeks">Games you played last 2 weeks :</span>
+			<ul>
+				<li><a href=""><img src="../public/img/dota.jpg" alt=""><span class="gamename">Dota 2</span></a></li>
+				<li><a href=""><img src="../public/img/dota.jpg" alt=""><span class="gamename">Dota 2</span></a></li>
+			</ul>
+		</div>
 	</div>
 	<div class="content">
-		 <h1><img class="game_icon" src="../public/stylesheets/dota.jpg" alt="">Dota 2</h1>
-			<p>You played 10 hours this week, it's sucks!</p>
-			<p>You was able to do something cool, piece of sheet!</p>
-			<p>Your hours at dota last 2 weeks:</p>
-			<img class="graph" src="../public/stylesheets/graphic.png" alt="">
+		<div class="container">
+			<img class="game_icon" src="../public/img/dota.jpg" alt="">
+			<div class="current-info">
+				<span class="current-game">Dota 2</span>
+				<span class="played">You played 10 hours this week, it's sucks!</span>
+				<div class="else">
+					<p>You was able to do something cool, piece of sheet!</p>
+					<p>Your hours at dota last 2 weeks:</p>
+					<img class="graph" src="../public/img/graphic.png" alt="">
+				</div>
+			</div>
+			<span class="title">Friends playing Dota 2</span>
+
+			<ul class="playing_friends">
+				<li><a href=""><img src="" alt=""/></a></li>
+				<li><a href=""><img src="" alt=""/></a></li>
+				<li><a href=""><img src="" alt=""/></a></li>
+				<li><a href=""><img src="" alt=""/></a></li>
+				<li><a href=""><img src="" alt=""/></a></li>
+				<li><a href=""><img src="" alt=""/></a></li>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>
