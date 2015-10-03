@@ -3,20 +3,43 @@ var app = express();
 var routes = require('./routes/index');
 var http = require('http');
 var path = require('path');
+var users = require('./routes/users');
+var routes1 = require('./routes/users');
+
+app.use('/', routes);
+app.use('/users', users );
+
 
 app.set('port',3000);
+
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hjs');
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('express server listening on port '+app.get('port'));
 });
 
+
 //middleware
+/*app.use(function(req,res){
+  switch (req.url) {
+    case "/" : routes;
+      break
+   /!* case "/users" : users;
+      break*!/
+    default :
+      res.end('page not fonud');
+  }});*/
+/*
 app.use(function(req,res) {
   if (req.url == '/')
     res.end("time is money");
   else
     res.end("Page Not Found");
 });
+*/
 
 /*// view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -71,6 +94,13 @@ app.use(function(err, req, res, next) {
   });
 });
 
+ app.use(function(req, res, next) {
+ var err = new Error('Not Found');
+ err.status = 404;
+ next(err);
+ });
 
-module.exports = app;
-*/
+
+
+
+module.exports = app;*/

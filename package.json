@@ -10,5 +10,17 @@
     "hjs": "~0.0.6",
     "less-middleware": "1.0.x",
     "restler": "3.4.0"
-  }
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmn451/steamApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lmn451/steamApp/issues"
+  },
+  "homepage": "https://github.com/lmn451/steamApp#readme"
 }
