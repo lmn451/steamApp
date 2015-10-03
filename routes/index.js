@@ -10,6 +10,10 @@ router.get('/', function(req, res, next) {
     console.log(cookies);
     //console.log(req);
 
+    var os = require("os");
+    console.log(os.hostname());
+    console.log(os.networkInterfaces());
+
     var loginedSteamId = cookies.get("steamid");
 
     if (loginedSteamId){
