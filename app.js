@@ -4,13 +4,14 @@ var routes = require('./routes/index');
 var http = require('http');
 var path = require('path');
 var users = require('./routes/users');
-var routes1 = require('./routes/users');
+
+
 
 app.use('/', routes);
 app.use('/users', users );
 app.use(express.static(process.cwd() + '/public'));
 
-app.set('port',3000);
+//app.set('port',3000);
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -102,5 +103,5 @@ app.use(function(err, req, res, next) {
 
 
 
-
-module.exports = app;*/
+ */
+module.exports = app;
