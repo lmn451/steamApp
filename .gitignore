@@ -1,3 +1,5 @@
+/.idea
+/npm-debug.log
 node_modules/*
 .gitattributes
 ### WebStorm ###
@@ -6,8 +8,6 @@ node_modules/*
 *.iml
 
 ## Directory-based project format:
-.idea/
-
 *.ipr
 *.iws
 
