@@ -7,7 +7,7 @@ var steamApi = require('../core/steamapi');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var cookies = new Cookies(req, res);
-    console.log(cookies);
+    //console.log(cookies);
     //console.log(req);
 
     var os = require("os");
