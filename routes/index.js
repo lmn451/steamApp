@@ -11,8 +11,6 @@ router.get('/', function(req, res, next) {
     //console.log(req);
 
     var os = require("os");
-    console.log(os.hostname());
-    console.log(os.networkInterfaces());
 
     var loginedSteamId = cookies.get("steamid");
 
@@ -43,7 +41,8 @@ router.get('/', function(req, res, next) {
         });
 
     } else{
-        res.render('landing');
+        console.log(req.headers);
+        res.render('landing', { callbackUrl: req.headers.host });
     }
 
 
