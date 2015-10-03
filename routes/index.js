@@ -42,7 +42,7 @@ router.get('/', function(req, res, next) {
 
     } else{
         console.log(req.headers);
-        res.render('landing', { callbackUrl: req.headers.host });
+        res.render('landing', { host: req.headers.host });
     }
 
 
