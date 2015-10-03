@@ -8,7 +8,7 @@ var routes1 = require('./routes/users');
 
 app.use('/', routes);
 app.use('/users', users );
-
+app.use(express.static(process.cwd() + '/public'));
 
 app.set('port',3000);
 
