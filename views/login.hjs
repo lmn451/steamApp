@@ -1,0 +1,3 @@
+<a
+ href="https://steamcommunity.com/openid/login?openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.mode=checkid_setup&openid.realm=http%3A%2F%2Flocalhost:3000%2F&openid.return_to=http%3A%2F%2Flocalhost:3000%2Flogin"
+ ><img src="https://www.carbongames.com/airmech/img/loginSteam.png" alt="Login via stem"/></a>
