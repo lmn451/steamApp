@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 
         var response = function () {
             if (player && playerGames && playerFriends) {
-                res.render('resent', {title: 'Recent games', player: player, games: playerGames, friends: playerFriends});
+                res.render('index', {title: 'Recent games', player: player, games: playerGames, friends: playerFriends});
             }
         };
 
@@ -37,7 +37,7 @@ router.get('/', function(req, res, next) {
         });
 
     } else{
-
+        res.render('login', {});
     }
 
 

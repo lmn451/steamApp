@@ -15,14 +15,14 @@
 		<div class="header">
 			<div class="container">
 				<ul class="nav">
-					<li><a href="">Store</a></li>
-					<li><a href="">Library</a></li>
-					<li><a href="">Community</a></li>
+					<li><a href="#">Store</a></li>
+					<li><a href="#">Library</a></li>
+					<li><a href="#">Community</a></li>
 				</ul>
 				<ul class="user">
-					<li><a href=""><img class="avatar" src="/" alt=""></a></li>
-					<li><a href="" class="user-name">Pit Graham</a></li>
-					<li><a href=""><img class="log-out" src="img/log-out.png" alt=""></a></li>
+					<li><a href="/"><img class="avatar" src="{{ player.avatarfull }}" alt=""></a></li>
+					<li><a href="/" class="user-name">{{ player.personaname }}</a></li>
+					<li><a href="logout"><img class="log-out" src="img/log-out.png" alt=""></a></li>
 				</ul>
 			</div>
 		</div>
@@ -30,39 +30,50 @@
 			<div class="container">
 				<ul>
 				    <li><div class="title">FAVOURITES</span></li>
-					<li><a href=""><div  class="game"><img class="game-icon" src="img/dota.png" alt=""><span class="game-name">Dota 2</span></div></a></li>
-					<li><a href=""><div  class="game"><img class="game-icon" src="img/dota.png" alt=""><span class="game-name">Dota 2</span></div></a></li>
+                    {{#games}}
+                        <!--<div>{{appid}} {{name}} {{playtime_2weeks}} {{playtime_forever}}</div>-->
+                        <li><a href=""><div  class="game"><img class="game-icon" src="img/dota.png" alt=""><span class="game-name">{{name}}</span></div></a></li>
+                    {{/games}}
 				</ul>
 			</div>
 		</div>
 		<div class="content">
-		    <div class="left-menu"></div>
-			<div class="container">
-			    <div>
-                    <div class="game-header">
-			            <img class="game-icon" src="img/dota.png" alt=""/>
-                        <div>
-                            <h3 class="game-name">Dota 2</h3>
-                            <p class="played">You've played <span class="hours">10</span> hours</p>
+		    <div class="left-menu">
+		        todo: style game list
+		        {{#games}}
+                    <div><!--{{appid}}--> {{name}} <!--{{playtime_2weeks}} {{playtime_forever}}--></div>
+                {{/games}}
+		    </div>
+
+            {{#games}}
+                <!--<div>{{appid}} {{name}} {{playtime_2weeks}} {{playtime_forever}}</div>-->
+                <div class="container">
+                    <div>
+                        <div class="game-header">
+                            <img class="game-icon" src="img/dota.png" alt=""/>
+                            <div>
+                                <h3 class="game-name">{{name}}</h3>
+                                <p class="played">You've played <span class="hours">{{ playtime_forever }}</span> hours</p>
+                            </div>
                         </div>
                     </div>
-			    </div>
-			    <div class="info">
-                    <p>Your hours at Dota 2 in 2 weeks</p>
-                    <img class="graph" src="img/graphic.png" alt="">
+                    <div class="info">
+                        <p>Your hours at Dota 2 in 2 weeks - {{playtime_2weeks}}</p>
+                        <img class="graph" src="img/graphic.png" alt="">
+                    </div>
+
+                    <p class="title">Friends playing Dota 2</p>
+
+                    <ul class="playing_friends">
+                        <li><a href=""><img src="" alt=""/></a></li>
+                        <li><a href=""><img src="" alt=""/></a></li>
+                        <li><a href=""><img src="" alt=""/></a></li>
+                        <li><a href=""><img src="" alt=""/></a></li>
+                        <li><a href=""><img src="" alt=""/></a></li>
+                        <li><a href=""><img src="" alt=""/></a></li>
+                    </ul>
                 </div>
-
-				<p class="title">Friends playing Dota 2</p>
-
-				<ul class="playing_friends">
-					<li><a href=""><img src="" alt=""/></a></li>
-					<li><a href=""><img src="" alt=""/></a></li>
-					<li><a href=""><img src="" alt=""/></a></li>
-					<li><a href=""><img src="" alt=""/></a></li>
-					<li><a href=""><img src="" alt=""/></a></li>
-					<li><a href=""><img src="" alt=""/></a></li>
-				</ul>
-			</div>
+            {{/games}}
 		</div>
 	</div>
 </body>
