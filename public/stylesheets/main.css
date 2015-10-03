@@ -1,24 +1,78 @@
-@font-face {
-	font-family: 'Helvetica';
-	src: url("../fonts.otf") format("opentype");
-}
+
 *{padding: 0;margin: 0;}
 body {
-    font-family: "Motiva Sans";
-    background: #393F6B;
+    font-family: 'Open Sans';
     color: white;
+}
+.body-background{
+	background-image: url(/img/dota-background.jpg);
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: 200%;
+	-webkit-filter: blur(10px) grayscale(75%);
+	-moz-filter: blur(10px) grayscale(75%);
+	-o-filter: blur(10px) grayscale(75%);
+	-ms-filter: blur(10px) grayscale(75%);
+	filter: blur(10px) grayscale(75%);
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1000;
+	overflow: hidden;
+}
+.body-background-overlay{
+	background: #343c67;
+	opacity: 0.7;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1000;
+	overflow: hidden;
 }
 .body-wrapper{
     width: 1048px;
+    border-radius: 6px;
     margin: auto;
+
+	margin-top: 50px;
+	margin-bottom: 50px;
+
+    position: relative;
+    overflow: hidden;
 }
-.container{
-	width: 1400px;
-	margin: 0 auto;
+
+.wrapper-background{
+    background-image: url(/img/dota-background.jpg);
+    background-position: 35% 50%;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1000;
+    overflow: hidden;
+    border-radius: 6px;
+}
+.wrapper-background-overlay{
+    background: #191f46;
+    opacity: 0.8;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1000;
+    overflow: hidden;
+    border-radius: 6px;
 }
 .header{
 	width: 100%;
-	background: #181A37;
 	display: inline-block;
     position: relative;
 }
@@ -43,91 +97,142 @@ body {
 .header ul.nav, ul.user li{
 	display: inline-block;
 }
-ul.user{
+.user{
     position: absolute;
     right: 0;
     top:0;
-	padding: 19px 15px;
+	padding: 23px;
 }
 ul.user li {
 	vertical-align: middle;
 	display: inline-block;
+    padding-right: 10px;
 }
 ul.user li a{
 	text-decoration: none;
 	color: white;
-	padding-right: 10px;
+    display: block;
 }
-.user img{
-	width: 33px;
-	height: 33px;
-	border-radius: 50%;
+.user .avatar{
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    display: block;
 }
-.favourites img{
-	width: 20px;
-	height: 20px;
+.user .user-name{
+    color: #f0bf61;
 }
+.user .log-out{
+    width: 33px;
+    height: 33px;
+    display: block;
+}
+
 .favourites{
-	background:#272A4E; 
+	background:rgba(255,255,255,0.1);
+    height: 30px;
 }
-.favourites ul li a{
+.favourites .game .game-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+.favourites .game .game-name{
+    vertical-align: middle;
+    margin-top: -2px;
+    padding-left: 2px;
+    display: inline-block;
+}
+
+.favourites ul{
+    padding-left: 10px;
+    list-style: none;
+    display: inline-block;
+}
+.favourites li{
+    display: inline-block;
+    vertical-align: top;
+}
+.favourites .title{
+    color: #68baff;
+    font-weight: 900;
+    font-size: 12px;
+    padding: 6px 10px;
+}
+.favourites .game{
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.favourites a .game {
 	text-decoration: none;
 	color: white;
 }
-.favourites ul li{
-	display: inline-block;
-	padding: 7px 10px 5px;
-}
-.favourites ul{
-	display: inline-block;
-}
-span.gamename{
-	padding: 5px 10px;
-	vertical-align: middle;
-	margin-top: -10px;
-	display: inline-block;
-}
-span.two-weeks{
-	display: inline-flex;
-	vertical-align: middle;
- 	text-shadow: .5px .3px .3px #68BAFF;
-	color: #68BAFF;
-	padding:0 0 10px 40px;
-}
-.content{
-	margin: 0 auto;
-	max-width: 960px;
-	padding: 50px 0 0 100px;
-}
-img.game_icon{
-	width: 60px;
-	height: 60px;
-	vertical-align: top;
-	margin-right: 10px;
-	float: left;
-}
-.current-info{
-	display: block;
-}
-span.current-game{
-	font-weight: 100;
-	font-size: 2em;
-}
-span.played{
-	display: block;
-	font-size: 15px;
 
+
+
+.content{
+	position: relative;
+	overflow: hidden;
+}
+
+
+
+.content .left-menu{
+	position: absolute;
+	width: 230px;
+	left: 0;
+	top: 0;
+	bottom: 0;
+
+    border-bottom-left-radius: 6px;
+	background: rgba(0, 0, 0, .3);
+}
+.content .container{
+	margin-left: 230px;
+    padding-top: 18px;
+}
+.content .container > * {
+	margin-top: 30px;
+	margin-left: 48px;
+}
+
+.content .game-icon{
+    width: 48px;
+    height: 48px;
+	vertical-align: top;
+	margin-right: 16px;
+    display: inline-block;
+}
+.content .game-header > *{
+    display: inline-block;
+}
+.content .game-header .game-name{
+    margin-top: -6px;
+	font-weight: 400;
+	font-size: 30px;
+}
+.content .played{
+    display: block;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    color: #7b85ab;
+    margin-top: -6px;
+}
+.content .played .hours{
+    font-weight: 700;
 }
 .else{
 	margin: 20px 0;
 }
-.content p{
+.content > p{
 	padding: 15px 0;
 }
-img.graph{
-	width: 768px;
-	height: 300px;
-	padding: 20px 0;
+.content .graph{
+	width: 532px;
+	height: 192px;
+    padding-top: 0;
+    margin-top: 22px;
 }
 span.title{
 	font-size: 1.5em;

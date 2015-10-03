@@ -3,11 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Steam</title>
-	<link rel="stylesheet" href="../public/stylesheets/main.css">
-	<link rel="stylesheet" href="../public/stylesheets/fonts.css">
+	<link rel="stylesheet" href="stylesheets/main.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
+    <div class="body-background"></div>
+    <div class="body-background-overlay"></div>
 	<div class="body-wrapper">
+        <div class="wrapper-background"></div>
+        <div class="wrapper-background-overlay"></div>
 		<div class="header">
 			<div class="container">
 				<ul class="nav">
@@ -16,34 +20,39 @@
 					<li><a href="">Community</a></li>
 				</ul>
 				<ul class="user">
-					<li><a href=""><img src="/" alt=""></a></li>
-					<li><a href="" class="username">Pit Graham</a></li>
-					<li><a href=""><img src="../public/img/log-out.png" alt=""></a></li>
+					<li><a href=""><img class="avatar" src="/" alt=""></a></li>
+					<li><a href="" class="user-name">Pit Graham</a></li>
+					<li><a href=""><img class="log-out" src="img/log-out.png" alt=""></a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="favourites">
 			<div class="container">
-				<span class="two-weeks">Games you played last 2 weeks :</span>
 				<ul>
-					<li><a href=""><img src="../public/img/dota.png" alt=""><span class="gamename">Dota 2</span></a></li>
-					<li><a href=""><img src="../public/img/dota.png" alt=""><span class="gamename">Dota 2</span></a></li>
+				    <li><div class="title">FAVOURITES</span></li>
+					<li><a href=""><div  class="game"><img class="game-icon" src="img/dota.png" alt=""><span class="game-name">Dota 2</span></div></a></li>
+					<li><a href=""><div  class="game"><img class="game-icon" src="img/dota.png" alt=""><span class="game-name">Dota 2</span></div></a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="content">
+		    <div class="left-menu"></div>
 			<div class="container">
-				<img class="game_icon" src="../public/img/dota.png" alt="">
-				<div class="current-info">
-					<span class="current-game">Dota 2</span>
-					<span class="played">You played 10 hours this week, it's sucks!</span>
-					<div class="else">
-						<p>You was able to do something cool, piece of sheet!</p>
-						<p>Your hours at dota last 2 weeks:</p>
-						<img class="graph" src="../public/img/graphic.png" alt="">
-					</div>
-				</div>
-				<span class="title">Friends playing Dota 2</span>
+			    <div>
+                    <div class="game-header">
+			            <img class="game-icon" src="img/dota.png" alt=""/>
+                        <div>
+                            <h3 class="game-name">Dota 2</h3>
+                            <p class="played">You've played <span class="hours">10</span> hours</p>
+                        </div>
+                    </div>
+			    </div>
+			    <div class="info">
+                    <p>Your hours at Dota 2 in 2 weeks</p>
+                    <img class="graph" src="img/graphic.png" alt="">
+                </div>
+
+				<p class="title">Friends playing Dota 2</p>
 
 				<ul class="playing_friends">
 					<li><a href=""><img src="" alt=""/></a></li>
