@@ -41,7 +41,8 @@ router.get('/', function(req, res, next) {
         });
 
     } else{
-        console.log(req.headers);
+        // console.log(req.headers);
+        // todo check https
         res.render('landing', { host: req.headers.host });
     }
 
