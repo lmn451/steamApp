@@ -3,24 +3,32 @@
 	src: url("../fonts.otf") format("opentype");
 }
 *{padding: 0;margin: 0;}
-body{
-	font-family: helvetica;
-	background: #393F6B;
-	color: white;
+body {
+    font-family: "Motiva Sans";
+    background: #393F6B;
+    color: white;
+}
+.body-wrapper{
+    width: 1048px;
+    margin: auto;
 }
 .container{
-	max-width: 1400px;
+	width: 1400px;
 	margin: 0 auto;
 }
 .header{
 	width: 100%;
 	background: #181A37;
-	display: inline-block;	
+	display: inline-block;
+    position: relative;
+}
+.header ul.nav{
+    padding-left: 10px;
 }
 .header ul.nav li{
 	list-style: none;
 	display: inline-block;
-	padding:18px 40px 15px 40px;
+	padding:26px 15px;
 }
 .header ul.nav li a{
 	color: white;
@@ -36,8 +44,10 @@ body{
 	display: inline-block;
 }
 ul.user{
-	float: right;
-	padding: 7px 0;
+    position: absolute;
+    right: 0;
+    top:0;
+	padding: 19px 15px;
 }
 ul.user li {
 	vertical-align: middle;
@@ -49,8 +59,8 @@ ul.user li a{
 	padding-right: 10px;
 }
 .user img{
-	width: 40px;
-	height: 40px;
+	width: 33px;
+	height: 33px;
 	border-radius: 50%;
 }
 .favourites img{

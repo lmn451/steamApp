@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Motiva Sans';
+    url('../fonts/motiva-sans.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Motiva Sans Medium';
+    url('../fonts/motiva-sans-medium.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Motiva Sans Light';
+    url('../fonts/motiva-sans-light.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Motiva Sans Regular Italic';
+    url('../fonts/motiva-sans-regular-italic.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Motiva Sans Bold Italic';
+    url('../fonts/motiva-sans-bold-italic.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Motiva Sans Bold';
+    url('../fonts/motiva-sans-bold.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Motiva Sans Thin';
+    url('../fonts/motiva-sans-thin.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Motiva Sans Light Italic';
+    url('../fonts/motiva-sans-light-italic.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}

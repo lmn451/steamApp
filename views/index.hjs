@@ -1,11 +1,60 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ title }}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
-  </body>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Steam</title>
+	<link rel="stylesheet" href="../public/stylesheets/main.css">
+	<link rel="stylesheet" href="../public/stylesheets/fonts.css">
+</head>
+<body>
+	<div class="body-wrapper">
+		<div class="header">
+			<div class="container">
+				<ul class="nav">
+					<li><a href="">Store</a></li>
+					<li><a href="">Library</a></li>
+					<li><a href="">Community</a></li>
+				</ul>
+				<ul class="user">
+					<li><a href=""><img src="/" alt=""></a></li>
+					<li><a href="" class="username">Pit Graham</a></li>
+					<li><a href=""><img src="../public/img/log-out.png" alt=""></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="favourites">
+			<div class="container">
+				<span class="two-weeks">Games you played last 2 weeks :</span>
+				<ul>
+					<li><a href=""><img src="../public/img/dota.png" alt=""><span class="gamename">Dota 2</span></a></li>
+					<li><a href=""><img src="../public/img/dota.png" alt=""><span class="gamename">Dota 2</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="content">
+			<div class="container">
+				<img class="game_icon" src="../public/img/dota.png" alt="">
+				<div class="current-info">
+					<span class="current-game">Dota 2</span>
+					<span class="played">You played 10 hours this week, it's sucks!</span>
+					<div class="else">
+						<p>You was able to do something cool, piece of sheet!</p>
+						<p>Your hours at dota last 2 weeks:</p>
+						<img class="graph" src="../public/img/graphic.png" alt="">
+					</div>
+				</div>
+				<span class="title">Friends playing Dota 2</span>
+
+				<ul class="playing_friends">
+					<li><a href=""><img src="" alt=""/></a></li>
+					<li><a href=""><img src="" alt=""/></a></li>
+					<li><a href=""><img src="" alt=""/></a></li>
+					<li><a href=""><img src="" alt=""/></a></li>
+					<li><a href=""><img src="" alt=""/></a></li>
+					<li><a href=""><img src="" alt=""/></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
