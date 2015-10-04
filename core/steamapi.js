@@ -38,6 +38,10 @@ this.getRecentlyPlayedGames = function(steamid, callback){
     });
 };
 
+
+// http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=XXXXXXXXXXXXXXXXX&appid=218620
+
+
 this.getLogoUrl = function (appid, logohash) {
     return "http://media.steampowered.com/steamcommunity/public/images/apps/" + logohash + "/" + logohash + ".jpg";
 };

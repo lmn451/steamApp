@@ -158,6 +158,7 @@ ul.user li a{
     font-weight: 900;
     font-size: 12px;
     padding: 6px 10px;
+	text-transform: uppercase;
 }
 .favourites .game{
     padding: 5px 10px;
@@ -203,6 +204,7 @@ ul.user li a{
 	vertical-align: top;
 	margin-right: 16px;
     display: inline-block;
+	border-radius:3px;
 }
 .content .game-header > *{
     display: inline-block;

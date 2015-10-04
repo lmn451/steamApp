@@ -27,8 +27,6 @@ router.get('/', function(req, res, next) {
                 res.render('index', {title: 'Recent games', player: player, games: playerGames, friends: playerFriends});
             }
         };
-        // у тебя в стиме игр нету? не это новый аак чист как моя бывшая
-        // ололо
 
         steamApi.getPlayerSummaries([loginedSteamId], function(players){
             player = players[0];

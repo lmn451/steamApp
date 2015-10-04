@@ -31,10 +31,10 @@
 		<div class="favourites">
 			<div class="container">
 				<ul>
-				    <li><div class="title">FAVOURITES</div></li>
+				    <li><div class="title">Games you played last 2 weeks</div></li>
                     {{#games}}
                         <!--<div>{{appid}} {{name}} {{playtime_2weeks}} {{playtime_forever}}</div>-->
-                        <li><a href=""><div  class="game"><img class="game-icon" src="img/dota.png" alt=""><span class="game-name">{{name}}</span></div></a></li>
+                        <li><a href=""><div  class="game"><img class="game-icon" src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_icon_url}}.jpg" alt=""><span class="game-name">{{name}}</span></div></a></li>
                     {{/games}}
 				</ul>
 			</div>
@@ -52,7 +52,7 @@
                 <div class="container">
                     <div>
                         <div class="game-header">
-                            <img class="game-icon" src="img/dota.png" alt=""/>
+                            <img class="game-icon" src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_icon_url}}.jpg" alt=""/>
                             <div>
                                 <h3 class="game-name">{{name}}</h3>
                                 <p class="played">You've played <span class="hours">{{ playtime_forever }}</span> hours</p>
