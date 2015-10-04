@@ -27,6 +27,7 @@
 			</div>
 		</div>
         <!-- TODO if player does not have games? -->
+        <!-- TODO if player has account hidden? -->
 		<div class="favourites">
 			<div class="container">
 				<ul>

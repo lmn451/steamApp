@@ -15,9 +15,12 @@ this.getPlayerSummaries = function(steamids, callback){
 this.getFriendList = function(steamid, callback) {
     var url = "http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=" + key + "&steamid=" + steamid + "&relationship=friend";
     rest.get(url).on('complete', function(data) {
-
-        console.log("GetFriendList: " + data.friendslist.friends.length + " friends");
-        callback(data.friendslist.friends);
+        if(data.friendslist && data.friendslist.friends) {
+            console.log("GetFriendList: " + data.friendslist.friends.length + " friends");
+            callback(data.friendslist.friends);
+        } else{
+            callback();
+        }
 
     });
 };
@@ -25,10 +28,12 @@ this.getFriendList = function(steamid, callback) {
 this.getRecentlyPlayedGames = function(steamid, callback){
     var url = 'http://api.steampowered.com/IPlayerService/getRecentlyPlayedGames/v0001/?key=' + key + '&steamid=' + steamid +'&format=json';
     rest.get(url).on('complete', function(data) {
-
-        console.log("GetRecentlyPlayedGames: " +data.response.total_count + " games");
-
-        callback(data.response.games);
+        if(data.response && data.response.games) {
+            console.log("GetRecentlyPlayedGames: " + data.response.total_count + " games");
+            callback(data.response.games);
+        } else{
+            callback();
+        }
 
     });
 };
