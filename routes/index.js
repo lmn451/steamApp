@@ -19,11 +19,16 @@ router.get('/', function(req, res, next) {
         var playerGames;
         var playerFriends;
 
+        var playerFriendsGotResponse;
+        var playerGamesGotResponse;
+
         var response = function () {
-            if (player && playerGames && playerFriends) {
+            if (player && playerGamesGotResponse && playerFriendsGotResponse) {
                 res.render('index', {title: 'Recent games', player: player, games: playerGames, friends: playerFriends});
             }
         };
+        // у тебя в стиме игр нету? не это новый аак чист как моя бывшая
+        // ололо
 
         steamApi.getPlayerSummaries([loginedSteamId], function(players){
             player = players[0];
@@ -32,11 +37,14 @@ router.get('/', function(req, res, next) {
 
         steamApi.getRecentlyPlayedGames(loginedSteamId, function (games) {
             playerGames = games;
+            playerGamesGotResponse = true;
             response();
         });
 
         steamApi.getFriendList(loginedSteamId,function(friends){
             playerFriends = friends;
+
+            playerFriendsGotResponse = true;
             response();
         });
 

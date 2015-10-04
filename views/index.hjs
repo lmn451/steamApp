@@ -26,10 +26,11 @@
 				</ul>
 			</div>
 		</div>
+        <!-- TODO if player does not have games? -->
 		<div class="favourites">
 			<div class="container">
 				<ul>
-				    <li><div class="title">FAVOURITES</span></li>
+				    <li><div class="title">FAVOURITES</div></li>
                     {{#games}}
                         <!--<div>{{appid}} {{name}} {{playtime_2weeks}} {{playtime_forever}}</div>-->
                         <li><a href=""><div  class="game"><img class="game-icon" src="img/dota.png" alt=""><span class="game-name">{{name}}</span></div></a></li>
