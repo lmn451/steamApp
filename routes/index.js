@@ -74,7 +74,11 @@ router.get('/login', function(req, res) {
 
 });
 
-
+router.get('/logout', function(req, res){
+    var cookies = new Cookies(req, res);
+    cookies.set("steamid", undefined);
+    res.redirect('/');
+});
 
 // https://steamcommunity.com/openid/login?
 // openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&
