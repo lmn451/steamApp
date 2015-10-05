@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
 
         var response = function () {
             if (player && playerGamesGotResponse && playerFriendsGotResponse) {
-                res.render('index', {title: 'Recent games', player: player, games: playerGames, playerOwnedGames: playerOwnedGames, friends: playerFriends});
+                res.render('index', {title: 'Recent games', player: player, games: playerGames,/* playerOwnedGames: playerOwnedGames,*/ friends: playerFriends});
             }
         };
 
