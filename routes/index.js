@@ -19,9 +19,10 @@ router.get('/', function(req, res, next) {
         var playerGames;
         var playerFriends;
 
-        /*var playerOwnedGames;*/
+        var playerOwnedGames = [];
         var playerFriendsGotResponse;
         var playerGamesGotResponse;
+        var pog;
 
         var response = function () {
             if (player && playerGamesGotResponse && playerFriendsGotResponse) {
@@ -46,16 +47,18 @@ router.get('/', function(req, res, next) {
             response();
         });
 
-        /*steamApi.getOwnedGames(loginedSteamId, function (games) {
-            playerOwnedGames = games;
+        steamApi.getOwnedGames(loginedSteamId, function (games) {
+            for (x in games) {
+                if (games[x].playtime_forever > 0) {
+                    playerOwnedGames.push(games[x]);
+                }
+            }
             response();
-        });*/
+        });
 
     } else{
         res.render('landing', { host: req.headers.host, protocol: req.protocol });
     }
-
-
 
 });
 

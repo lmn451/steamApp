@@ -37,7 +37,6 @@ this.getRecentlyPlayedGames = function(steamid, callback){
                 var gameTime = data.response.games[0].playtime_2weeks / 60 + "";
                 data.response.games[x].playtime_2weeks = gameTime.substr(0,(gameTime.indexOf(".") + 3));
             }
-
             callback(data.response.games);
         } else{
             callback();
@@ -46,18 +45,18 @@ this.getRecentlyPlayedGames = function(steamid, callback){
     });
 };
 
-/*this.getOwnedGames = function(steamid, callback){
+this.getOwnedGames = function(steamid, callback){
     var url = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + key + '&steamid=' + steamid;
     rest.get(url).on('complete', function(data) {
-        if(data) {
+        if(data.response && data.response.games) {
             console.log("GetOwnedGames: " + data.response.game_count + " games");
-            callback(data.response);
+            callback(data.response.games);
         } else{
             callback();
         }
 
     });
-};*/
+};
 
 
 // http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=XXXXXXXXXXXXXXXXX&appid=218620
