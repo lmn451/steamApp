@@ -19,12 +19,13 @@ router.get('/', function(req, res, next) {
         var playerGames;
         var playerFriends;
 
+        /*var playerOwnedGames;*/
         var playerFriendsGotResponse;
         var playerGamesGotResponse;
 
         var response = function () {
             if (player && playerGamesGotResponse && playerFriendsGotResponse) {
-                res.render('index', {title: 'Recent games', player: player, games: playerGames, friends: playerFriends});
+                res.render('index', {title: 'Recent games', player: player, games: playerGames, playerOwnedGames: playerOwnedGames, friends: playerFriends});
             }
         };
 
@@ -41,10 +42,14 @@ router.get('/', function(req, res, next) {
 
         steamApi.getFriendList(loginedSteamId,function(friends){
             playerFriends = friends;
-
             playerFriendsGotResponse = true;
             response();
         });
+
+        /*steamApi.getOwnedGames(loginedSteamId, function (games) {
+            playerOwnedGames = games;
+            response();
+        });*/
 
     } else{
         res.render('landing', { host: req.headers.host, protocol: req.protocol });
