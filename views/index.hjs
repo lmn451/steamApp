@@ -42,9 +42,9 @@
 		<div class="content">
 		    <div class="left-menu">
 		        todo: style game list
-		        //{{#playerOwnedGames}}
-                //   <div> {{game_count}} </div>
-                //{{/playerOwnedGames}}
+		        {{#playerOwnedGames}}
+                   <div> {{appid}} </div>
+                {{/playerOwnedGames}}
 
 		    </div>
 
@@ -56,16 +56,16 @@
                             <img class="game-icon" src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_icon_url}}.jpg" alt=""/>
                             <div>
                                 <h3 class="game-name">{{name}}</h3>
-                                <p class="played">You've played <span class="hours">{{ playtime_forever }}</span> hours at all</p>
+                                <p class="played">You've played <span class="hours">{{ playtime_forever }}</span> hours at all and <span class="hours">{{playtime_2weeks}}</span> last 2 weeks</p>
                             </div>
                         </div>
                     </div>
                     <div class="info">
-                        <p>Your hours at {{name}} in last 2 weeks is {{playtime_2weeks}} hours</p>
+                        <!--<p>You was playing at {{name}} {{playtime_2weeks}} hours last 2 weeks </p>-->
                         <img class="graph" src="img/graphic.png" alt="">
                     </div>
 
-                    <p class="title">Friends playing Dota 2</p>
+                    <p class="title">Friends playing {{name}}</p>
 
                     <ul class="playing_friends">
                         <li><a href=""><img src="" alt=""/></a></li>
