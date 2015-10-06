@@ -22,10 +22,11 @@ router.get('/', function(req, res, next) {
         var playerOwnedGames = [];
         var playerFriendsGotResponse;
         var playerGamesGotResponse;
+        var playerOwnedGamesGotResponse;
         var pog;
 
         var response = function () {
-            if (player && playerGamesGotResponse && playerFriendsGotResponse) {
+            if (player && playerGamesGotResponse && playerOwnedGamesGotResponse && playerFriendsGotResponse ) {
                 res.render('index', {title: 'Recent games', player: player, games: playerGames, playerOwnedGames: playerOwnedGames, friends: playerFriends});
             }
         };
@@ -53,6 +54,7 @@ router.get('/', function(req, res, next) {
                     playerOwnedGames.push(games[x]);
                 }
             }
+            playerOwnedGamesGotResponse = true;
             response();
         });
 
