@@ -46,35 +46,49 @@ this.getRecentlyPlayedGames = function(steamid, callback){
 };
 
 this.getOwnedGames = function(steamid, callback){
-    var j = -1,
-        i;
     var games = [];
     var urlOwned = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + key + '&steamid=' + steamid;
     rest.get(urlOwned).on('complete', function(data) {
         if(data.response && data.response.games) {
             console.log("GetOwnedGames: " + data.response.game_count + " games");
-            for (i in data.response.games){
-                if (data.response.games[i].playtime_forever > 0) {
-                    j++;
-                    games[j] = new Object();
-                    games[j].appid = data.response.games[i].appid;
+            var gamesFetched = 0;
+            var gamesFound = 0;
+            for (var i in data.response.games){
+                if (data.response.games[i].playtime_forever) {
+                    gamesFound++;
+                    //games[gamesFound] = new Object();
+                    var gameFound = data.response.games[i];
 
-                    games[j].playtime_forever = data.response.games[i].playtime_forever / 60 + "";
-                    games[j].playtime_forever = games[j].playtime_forever.substr(0,(games[j].playtime_forever.indexOf(".") + 3));
+                    var game = {};
+                    game.appid = gameFound.appid;
+                    game.playtime_forever = gameFound.playtime_forever / 60 + "";
+                    // todo removing dividing remainder
+                    // game.playtime_forever = game.playtime_forever.subst(0, (game.playtime_forever.indexOf(".") + 3));
 
-                    urlSchema = 'http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=' + key + '&appid=' + games[j].appid;
-                    rest.get(urlSchema).on('complete', function(data) {
-                        if(data.game && data.game.gameName  /*UntitledApp*/ /*("ValveTestApp" !== data.game.gameName.substring(12, -1))*/ ){
-                            games[j].gameName = data.game.gameName;
-                            console.log(games[j].gameName);
-                        }
-                    });
+                    games.push(game);
                 }
             }
+            games.forEach(function (game, index, array) {
+                var urlSchema = 'http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=' + key + '&appid=' + gameFound.appid;
+
+                rest.get(urlSchema).on('complete', function (data) {
+                    gamesFetched++;
+                    if (data.game && data.game.gameName  /*UntitledApp*/ /*("ValveTestApp" !== data.game.gameName.substring(12, -1))*/) {
+                        game.name = data.game.gameName;
+                        //console.log(game);
+                    }
+                    if(gamesFetched==gamesFound){
+                        callback(games);
+                    }
+                });
+            });
 
         }
-        console.log(games);console.log("GET ALL !!!!!!!!!!!!!!!!!!!!!!!!!1"); callback(games);
+        //console.log(games);
+        //console.log("GET ALL !!!!!!!!!!!!!!!!!!!!!!!!!1");
+        //callback(games);
     });
+
 
 
 };

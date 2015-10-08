@@ -50,7 +50,6 @@ router.get('/', function(req, res, next) {
 
         steamApi.getOwnedGames(loginedSteamId, function (games) {
             playerOwnedGames = games;
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SENDED")
             playerOwnedGamesGotResponse = true;
             response();
         });
