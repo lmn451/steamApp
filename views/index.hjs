@@ -41,9 +41,8 @@
 		</div>
 		<div class="content">
 		    <div class="left-menu">
-		        todo: style game list
 		        {{#playerOwnedGames}}
-                   <div> {{playerOwnedGames}} </div>
+                   <div> {{appid}} - {{playtime_forever}} </div>
                 {{/playerOwnedGames}}
 
 		    </div>

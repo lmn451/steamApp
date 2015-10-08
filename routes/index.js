@@ -49,11 +49,8 @@ router.get('/', function(req, res, next) {
         });
 
         steamApi.getOwnedGames(loginedSteamId, function (games) {
-            for (x in games) {
-                if (games[x].playtime_forever > 0) {
-                    playerOwnedGames.push(games[x]);
-                }
-            }
+            playerOwnedGames = games;
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SENDED")
             playerOwnedGamesGotResponse = true;
             response();
         });
