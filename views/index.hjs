@@ -42,7 +42,7 @@
 		<div class="content">
 		    <div class="left-menu">
 		        {{#playerOwnedGames}}
-                   <div> {{appid}} - {{ name }} {{playtime_forever}} </div>
+                   <div>{{name}} - {{playtime_forever}} </div>
                 {{/playerOwnedGames}}
 
 		    </div>

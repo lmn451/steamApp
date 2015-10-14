@@ -63,19 +63,18 @@ this.getOwnedGames = function(steamid, callback){
                     game.appid = gameFound.appid;
                     game.playtime_forever = gameFound.playtime_forever / 60 + "";
                     // todo removing dividing remainder
-                    // game.playtime_forever = game.playtime_forever.subst(0, (game.playtime_forever.indexOf(".") + 3));
+                     game.playtime_forever = game.playtime_forever.substring(0, (game.playtime_forever.indexOf(".") + 3));
 
                     games.push(game);
                 }
             }
-            games.forEach(function (game, index, array) {
-                var urlSchema = 'http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=' + key + '&appid=' + gameFound.appid;
 
+            games.forEach(function (game, index, array) {
+                var urlSchema = 'http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=' + key + '&appid=' + game.appid;
                 rest.get(urlSchema).on('complete', function (data) {
                     gamesFetched++;
-                    if (data.game && data.game.gameName  /*UntitledApp*/ /*("ValveTestApp" !== data.game.gameName.substring(12, -1))*/) {
+                    if (data.game && data.game.gameName ) {   /*UntitledApp*/ /*("ValveTestApp" !== data.game.gameName.substring(12, -1))*/
                         game.name = data.game.gameName;
-                        //console.log(game);
                     }
                     if(gamesFetched==gamesFound){
                         callback(games);
