@@ -1,7 +1,19 @@
-project ololo
-
-<div>
-<a
-href="https://steamcommunity.com/openid/login?openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.mode=checkid_setup&openid.realm={{ protocol }}%3A%2F%2F{{ host }}%2F&openid.return_to={{ protocol }}%3A%2F%2F{{ host }}%2Flogin" alt="Login via steam"
-><img src="https://www.carbongames.com/airmech/img/loginSteam.png" alt="Login via stem"/></a></div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="stylesheets/lending.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="body-wrapper">
+		<a href="" class="logo">SteamApp</a>
+		<a href="/" class="button right">Get Started</a>
+		<div class="text">How to understand that you are sh#t!?</div>
+		<div class="buttons">
+			<a href="" class="button big center">Learn more about this sh#t</a>
+			<a href="https://steamcommunity.com/openid/login?openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.mode=checkid_setup&openid.realm={{ protocol }}%3A%2F%2F{{ host }}%2F&openid.return_to={{ protocol }}%3A%2F%2F{{ host }}%2Flogin" alt="Login via steam" class="button big singin">Sing in with Steam</a>
+		</div>
+	</div>
+</body>
+</html>
