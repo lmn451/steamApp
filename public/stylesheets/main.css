@@ -240,7 +240,7 @@ ul.user li a{
     color: #7b85ab;
     margin-top: -6px;
 }
-.content .played .hours{
+span.hours{
     font-weight: 700;
 }
 .else{

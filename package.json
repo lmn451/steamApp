@@ -4,15 +4,14 @@
   "private": false,
   "scripts": {
     "start": "node ./bin/www"
-
   },
   "description": "sd",
   "dependencies": {
+    "cookies": "0.5.1",
+    "debug": "2.2.0",
     "express": "~4.13.1",
     "hjs": "~0.0.6",
     "restler": "3.4.0",
-    "cookies": "0.5.1",
-    "debug":"2.2.0"
   },
   "devDependencies": {},
   "repository": {

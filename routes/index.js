@@ -23,7 +23,6 @@ router.get('/', function(req, res, next) {
         var playerFriendsGotResponse;
         var playerGamesGotResponse;
         var playerOwnedGamesGotResponse;
-        var pog;
 
         var response = function () {
             if (player && playerGamesGotResponse && playerOwnedGamesGotResponse && playerFriendsGotResponse ) {
@@ -50,6 +49,7 @@ router.get('/', function(req, res, next) {
 
         steamApi.getOwnedGames(loginedSteamId, function (games) {
             playerOwnedGames = games;
+            console.log("Get");
             playerOwnedGamesGotResponse = true;
             response();
         });

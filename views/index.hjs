@@ -41,8 +41,9 @@
 		</div>
 		<div class="content">
 		    <div class="left-menu">
+		        <div class="title"></div>
 		        {{#playerOwnedGames}}
-                   <div>{{name}} - {{playtime_forever}} </div>
+                   <div>{{name}} - <span class="hours">{{playtime_forever}}</span> hours </div>
                 {{/playerOwnedGames}}
 
 		    </div>
@@ -60,7 +61,7 @@
                         </div>
                     </div>
                     <div class="info">
-                        <p>You was playing at {{name}} {{playtime_2weeks}} hours last 2 weeks </p>
+                        <p>You was playing at {{name}} <span class="hours">{{playtime_2weeks}}</span> hours last 2 weeks </p>
                         <img class="graph" src="img/graphic.png" alt="">
                     </div>
 
