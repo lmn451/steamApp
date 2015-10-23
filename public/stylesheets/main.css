@@ -181,6 +181,7 @@ ul.user li a{
 
 .content .left-menu{
 	position: absolute;
+	padding: 10px 0 10px 10px;
 	width: 230px;
 	left: 0;
 	top: 0;
@@ -188,17 +189,8 @@ ul.user li a{
 	overflow-y: scroll;
     border-bottom-left-radius: 6px;
 	background: rgba(0, 0, 0, .3);
-	scrollbar-arrow-color: #fff; /* Цвет стрелок */
-	scrollbar-base-color: #ffa12d; /* Цвет полосы прокрутки */
-	scrollbar-shadow-color: #fed189; /* Цвет тени */
-	scrollbar-highlight-color: #fff;scrollbar-arrow-color: red;
-	scrollbar-face-color: green;
-	scrollbar-highlight-color: blue;
-	scrollbar-3dlight-color: red;
-	scrollbar-darkshadow-color: yellow;
-	scrollbar-shadow-color: grey;
-	scrollbar-arrow-color: purple;
-	scrollbar-track-color: pink;
+	font-size: 14px;
+
 }
 .content .left-menu::-webkit-scrollbar-thumb{
 	border-width:1px 1px 1px 2px;
