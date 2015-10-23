@@ -170,14 +170,10 @@ ul.user li a{
 	color: white;
 }
 
-
-
 .content{
 	position: relative;
 	overflow: hidden;
 }
-
-
 
 .content .left-menu{
 	position: absolute;
@@ -190,12 +186,23 @@ ul.user li a{
     border-bottom-left-radius: 6px;
 	background: rgba(0, 0, 0, .3);
 	font-size: 14px;
-
 }
+.content .left-menu::-webkit-scrollbar {
+	width: 12px;  /* for vertical scrollbars */
+}
+
+.content .left-menu::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.content .left-menu::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.5);
+}
+
 .content .left-menu::-webkit-scrollbar-thumb{
 	border-width:1px 1px 1px 2px;
 	border-color: #777;
-	background-color: #aaa;
+	background: rgba(94, 86, 117,.3);
 }
 .content .left-menu::-webkit-scrollbar-track{
 	border-width:0;
