@@ -1,6 +1,6 @@
 var rest = require('restler');
 key = 'FF183132FD171CE0F9853928CDCE1C69';
-var getAllTime = 0;
+
 
 this.getPlayerSummaries = function(steamids, callback){
     var url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key="+key+"&steamids="+steamids.join(',');
@@ -49,6 +49,7 @@ this.getRecentlyPlayedGames = function(steamid, callback){
 
 this.getOwnedGames = function(steamid, callback){
     var games = [];
+    var getAllTime = 0;
     var urlSchema = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + key + '&steamid=' + steamid;
     rest.get(urlSchema).on('complete', function(data) {
         if(data.response && data.response.games) {
