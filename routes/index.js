@@ -16,20 +16,15 @@ router.get('/', function(req, res, next) {
 
     if (loginedSteamId){
         var player;
-        var playerGames;
-        var playerFriends;
 
-        var playerOwnedGames = [];
-        var playerFriendsGotResponse;
-        var playerGamesGotResponse;
-        var playerOwnedGamesGotResponse;
-
-        var getAllPlayTime;
-        var playerGetAllPlayTime;
-
+        var playerFriends,playerFriendsGotResponse;
+        var playerGames, playerGamesGotResponse;
+        var playerOwnedGames = [], playerOwnedGamesGotResponse;
+        var getAllPlayTime, getAllPlayTimeGotResponse;
+        var getBgUrl, getBgUrlGotResponse;
         var response = function () {
-            if (player && playerGamesGotResponse && playerOwnedGamesGotResponse && playerFriendsGotResponse && playerGetAllPlayTime) {
-                res.render('index', {title: 'Recent games', player: player, games: playerGames,getAllPlayTime: getAllPlayTime,  playerOwnedGames: playerOwnedGames, friends: playerFriends});
+            if (player && playerGamesGotResponse && playerOwnedGamesGotResponse && playerFriendsGotResponse && getAllPlayTimeGotResponse ) {
+                res.render('index', {title: 'Recent games', player: player, games: playerGames, allPlayingTime: getAllPlayTime,  playerOwnedGames: playerOwnedGames, friends: playerFriends});
             }
         };
 
@@ -40,6 +35,8 @@ router.get('/', function(req, res, next) {
 
         steamApi.getRecentlyPlayedGames(loginedSteamId, function (games) {
             playerGames = games;
+            //getBgUrl ="http://cdn.akamai.steamstatic.com/steam/apps/" + playerGames[0].appid + "/page_bg_generated.jpg";
+            //getBgUrlGotResponse = true;
             playerGamesGotResponse = true;
             response();
         });
@@ -53,10 +50,11 @@ router.get('/', function(req, res, next) {
         steamApi.getOwnedGames(loginedSteamId, function (games) {
             playerOwnedGames = games;
             getAllPlayTime = games.time;
-            playerGetAllPlayTime = true;
+            getAllPlayTimeGotResponse = true;
             playerOwnedGamesGotResponse = true;
             response();
         });
+
 
     } else{
         res.render('landing', { host: req.headers.host, protocol: req.protocol });

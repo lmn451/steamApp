@@ -12,7 +12,7 @@
 		<div class="text">How to understand that you are sh#t!?</div>
 		<div class="buttons">
 			<a href="" class="button big center">Learn more about this sh#t</a>
-			<a href="https://steamcommunity.com/openid/login?openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.mode=checkid_setup&openid.realm={{ protocol }}%3A%2F%2F{{ host }}%2F&openid.return_to={{ protocol }}%3A%2F%2F{{ host }}%2Flogin" class="button big singin">Sing in with Steam</a>
+			<a href="https://steamcommunity.com/openid/login?openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.mode=checkid_setup&openid.realm={{ protocol }}%3A%2F%2F{{ host }}%2F&openid.return_to={{ protocol }}%3A%2F%2F{{ host }}%2Flogin" class="button big singin">Sign in through Steam</a>
 		</div>
 	</div>
 </body>

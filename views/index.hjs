@@ -62,7 +62,7 @@
                     </div>
                     <div class="info">
                         <p>Вы играли {{name}} <span class="hours">{{playtime_2weeks}}</span> часов за последние две недели </p>
-                        <p>Вы играли всего: {{getAllPlayTime}} часов</p>
+                        <p>Вы играли всего: {{allPlayingTime}} часов</p>
                     </div>
                 </div>
             {{/games}}

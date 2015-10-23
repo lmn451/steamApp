@@ -59,13 +59,11 @@ this.getOwnedGames = function(steamid, callback){
             for (var i in data.response.games){
                 if (data.response.games[i].playtime_forever) {
                     gamesFound++;
-                    //games[gamesFound] = new Object();
                     var gameFound = data.response.games[i];
                     getAllTime += gameFound.playtime_forever;
 
                     var game = {};
                     game.appid = gameFound.appid;
-                    // todo removing dividing remainder
                     game.playtime_forever = (gameFound.playtime_forever / 60).toFixed(2);
                     games.push(game);
                 }
@@ -78,7 +76,7 @@ this.getOwnedGames = function(steamid, callback){
                         games.time = (getAllTime/60).toFixed(2);
 
                         callback(games);
-                        console.log("GetApps: " + gamesFetched)
+                        console.log("GetApps: " + gamesFetched);
                         console.log('GetAllTime: ' + games.time);
                     }
                 });
@@ -86,7 +84,6 @@ this.getOwnedGames = function(steamid, callback){
         }
     });
 };
-// http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=XXXXXXXXXXXXXXXXX&appid=218620
 
 this.getLogoUrl = function (appid, logohash) {
     return "http://media.steampowered.com/steamcommunity/public/images/apps/" + logohash + "/" + logohash + ".jpg";
