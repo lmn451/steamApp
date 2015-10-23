@@ -1,5 +1,6 @@
 var rest = require('restler');
 key = 'FF183132FD171CE0F9853928CDCE1C69';
+var getAllTime = 0;
 
 this.getPlayerSummaries = function(steamids, callback){
     var url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key="+key+"&steamids="+steamids.join(',');
@@ -59,12 +60,12 @@ this.getOwnedGames = function(steamid, callback){
                     gamesFound++;
                     //games[gamesFound] = new Object();
                     var gameFound = data.response.games[i];
+                    getAllTime += gameFound.playtime_forever;
 
                     var game = {};
                     game.appid = gameFound.appid;
-                    game.playtime_forever = gameFound.playtime_forever / 60 + "";
                     // todo removing dividing remainder
-                    game.playtime_forever = game.playtime_forever.substring(0, (game.playtime_forever.indexOf(".") + 3));
+                    game.playtime_forever = (gameFound.playtime_forever / 60).toFixed(2);
                     games.push(game);
                 }
             }
@@ -73,8 +74,11 @@ this.getOwnedGames = function(steamid, callback){
                     game.name = data.applist.apps.app.filter(function(v){ return v["appid"] == game.appid; })[0].name;
                     gamesFetched++;
                     if(gamesFetched==gamesFound){
+                        games.time = (getAllTime/60).toFixed(2);
+
                         callback(games);
                         console.log("GetApps: " + gamesFetched)
+                        console.log('GetAllTime: ' + games.time);
                     }
                 });
             });
@@ -82,7 +86,6 @@ this.getOwnedGames = function(steamid, callback){
     });
 };
 // http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=XXXXXXXXXXXXXXXXX&appid=218620
-
 
 this.getLogoUrl = function (appid, logohash) {
     return "http://media.steampowered.com/steamcommunity/public/images/apps/" + logohash + "/" + logohash + ".jpg";

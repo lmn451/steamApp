@@ -24,9 +24,12 @@ router.get('/', function(req, res, next) {
         var playerGamesGotResponse;
         var playerOwnedGamesGotResponse;
 
+        var getAllPlayTime;
+        var playerGetAllPlayTime;
+
         var response = function () {
-            if (player && playerGamesGotResponse && playerOwnedGamesGotResponse && playerFriendsGotResponse ) {
-                res.render('index', {title: 'Recent games', player: player, games: playerGames, playerOwnedGames: playerOwnedGames, friends: playerFriends});
+            if (player && playerGamesGotResponse && playerOwnedGamesGotResponse && playerFriendsGotResponse && playerGetAllPlayTime) {
+                res.render('index', {title: 'Recent games', player: player, games: playerGames,getAllPlayTime: getAllPlayTime,  playerOwnedGames: playerOwnedGames, friends: playerFriends});
             }
         };
 
@@ -49,6 +52,8 @@ router.get('/', function(req, res, next) {
 
         steamApi.getOwnedGames(loginedSteamId, function (games) {
             playerOwnedGames = games;
+            getAllPlayTime = games.time;
+            playerGetAllPlayTime = true;
             playerOwnedGamesGotResponse = true;
             response();
         });

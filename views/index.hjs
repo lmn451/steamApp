@@ -61,20 +61,9 @@
                         </div>
                     </div>
                     <div class="info">
-                        <p>You was playing at {{name}} <span class="hours">{{playtime_2weeks}}</span> hours last 2 weeks </p>
-                        <img class="graph" src="img/graphic.png" alt="">
+                        <p>Вы играли {{name}} <span class="hours">{{playtime_2weeks}}</span> часов за последние две недели </p>
+                        <p>Вы играли всего: {{getAllPlayTime}} часов</p>
                     </div>
-
-                    <p class="title">Friends playing {{name}}</p>
-
-                    <ul class="playing_friends">
-                        <li><a href=""><img src="" alt=""/></a></li>
-                        <li><a href=""><img src="" alt=""/></a></li>
-                        <li><a href=""><img src="" alt=""/></a></li>
-                        <li><a href=""><img src="" alt=""/></a></li>
-                        <li><a href=""><img src="" alt=""/></a></li>
-                        <li><a href=""><img src="" alt=""/></a></li>
-                    </ul>
                 </div>
             {{/games}}
 		</div>

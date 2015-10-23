@@ -173,6 +173,7 @@ ul.user li a{
 .content{
 	position: relative;
 	overflow: hidden;
+	min-height:400px;
 }
 
 .content .left-menu{
