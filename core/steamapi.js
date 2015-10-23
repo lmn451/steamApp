@@ -4,9 +4,12 @@ key = 'FF183132FD171CE0F9853928CDCE1C69';
 this.getPlayerSummaries = function(steamids, callback){
     var url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key="+key+"&steamids="+steamids.join(',');
     rest.get(url).on('complete', function(data) {
-        console.log("GetPlayerSummaries: " + data.response.players.length + " players");
-        callback(data.response.players);
-
+        if (data){
+            console.log("GetPlayerSummaries: " + data.response.players.length + " players");
+            callback(data.response.players);
+        }else{
+            callback();
+        }
     });
 };
 
@@ -43,7 +46,6 @@ this.getRecentlyPlayedGames = function(steamid, callback){
     });
 };
 
-
 this.getOwnedGames = function(steamid, callback){
     var games = [];
     var urlSchema = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + key + '&steamid=' + steamid;
@@ -63,32 +65,25 @@ this.getOwnedGames = function(steamid, callback){
                     game.playtime_forever = gameFound.playtime_forever / 60 + "";
                     // todo removing dividing remainder
                     game.playtime_forever = game.playtime_forever.substring(0, (game.playtime_forever.indexOf(".") + 3));
-
                     games.push(game);
                 }
             }
-
-            games.forEach(function (game, index, array) {
-                    rest.get('http://api.steampowered.com/ISteamApps/GetAppList/v0001').on('complete', function(data, appList) {
-                        game.name = data.applist.apps.app.filter(function(v){ return v["appid"] == game.appid; })[0].name;
-                        gamesFetched++;
-                        if(gamesFetched==gamesFound){
-                            callback(games);
-                            console.log("Sended");
-                        }
-                    });
-
-
-
-
+            rest.get('http://api.steampowered.com/ISteamApps/GetAppList/v0001').on('complete', function(data) {
+                games.forEach(function (game, index, array) {
+                    game.name = data.applist.apps.app.filter(function(v){ return v["appid"] == game.appid; })[0].name;
+                    gamesFetched++;
+                    if(gamesFetched==gamesFound){
+                        callback(games);
+                        console.log("GetApps: " + gamesFetched)
+                    }
+                });
             });
-
         }
     });
 };
 // http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=XXXXXXXXXXXXXXXXX&appid=218620
 
-/*
+
 this.getLogoUrl = function (appid, logohash) {
     return "http://media.steampowered.com/steamcommunity/public/images/apps/" + logohash + "/" + logohash + ".jpg";
-};*/
+};
