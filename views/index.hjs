@@ -41,10 +41,17 @@
 		</div>
 		<div class="content">
 		    <div class="left-menu">
-		        <div class="title"></div>
+		        <table>
+		        <th>Name</th>
+                <th>Hours</th>
 		        {{#playerOwnedGames}}
-                   <div>{{name}} - <span class="hours">{{playtime_forever}}</span> hours </div>
-                {{/playerOwnedGames}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td><span class="hours">{{playtime_forever}}</span></td>
+                    </tr>
+                    {{/playerOwnedGames}}
+                </table>
+
 
 		    </div>
 

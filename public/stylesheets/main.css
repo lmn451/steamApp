@@ -169,7 +169,18 @@ ul.user li a{
 	text-decoration: none;
 	color: white;
 }
-
+table{
+	position: relative;
+}
+td{
+	border-bottom:1px solid #29253D;
+	margin: 0;
+}
+th{
+	text-align: left;
+	padding: 0;
+	top:0;
+}
 .content{
 	position: relative;
 	overflow: hidden;
