@@ -34,7 +34,7 @@ body {
 	overflow: hidden;
 }
 .body-wrapper{
-    width: 1048px;
+    max-width: 1048px;
     border-radius: 6px;
     margin: auto;
 
@@ -283,7 +283,11 @@ ul.playing_friends li img{
 	-moz-border-radius: 50%;
 	border-radius: 50%;
 }
+
 @media (max-width:768px){
+	ul.nav{
+		margin-top: 20px;
+	}
 	.header ul{
 		width: 100%;
 		text-align: center;
@@ -311,5 +315,7 @@ ul.playing_friends li img{
 	img.graph{
 		width: 100%;
 		height: 100%;
+	}
+	.body-background{ background-size: auto;
 	}
 }

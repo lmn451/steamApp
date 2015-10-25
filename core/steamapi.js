@@ -73,9 +73,11 @@ this.getOwnedGames = function(steamid, callback){
                     game.name = data.applist.apps.app.filter(function(v){ return v["appid"] == game.appid; })[0].name;
                     gamesFetched++;
                     if(gamesFetched==gamesFound){
-                        games.time = (getAllTime/60).toFixed(2);
+                        games.sort(compareObjectsByTime);
 
+                        games.time = (getAllTime/60).toFixed(2);
                         callback(games);
+
                         console.log("GetApps: " + gamesFetched);
                         console.log('GetAllTime: ' + games.time);
                     }
@@ -83,8 +85,12 @@ this.getOwnedGames = function(steamid, callback){
             });
         }
     });
+    function compareObjectsByTime (x, y){
+        return (parseInt (y ["playtime_forever"]) - parseInt (x ["playtime_forever"]))
+    }
 };
 
 this.getLogoUrl = function (appid, logohash) {
     return "http://media.steampowered.com/steamcommunity/public/images/apps/" + logohash + "/" + logohash + ".jpg";
 };
+
