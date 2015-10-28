@@ -45,22 +45,19 @@
             		            <div class="ri">Hours</div>
             		        </div>
 		    <div class="left-menu">
-
 		        <table>
 		        {{#playerOwnedGames}}
                     <tr>
                         <td>{{name}}</td>
                         <td><span class="hours">{{playtime_forever}}</span></td>
                     </tr>
-                    {{/playerOwnedGames}}
+                {{/playerOwnedGames}}
                 </table>
-
-
 		    </div>
-
             {{#games}}
                 <!--<div>{{appid}} {{name}} {{playtime_2weeks}} {{playtime_forever}}</div>-->
                 <div class="container">
+                    <!--
                     <div>
                         <div class="game-header">
                             <img class="game-icon" src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_icon_url}}.jpg" alt=""/>
@@ -70,9 +67,17 @@
                             </div>
                         </div>
                     </div>
+                    -->
                     <div class="info">
-                        <p>Вы играли {{name}} <span class="hours">{{playtime_2weeks}}</span> часов за последние две недели </p>
-                        <p>Вы играли всего: {{allPlayingTime}} часов</p>
+                        <!--<p>Вы играли {{name}} <span class="hours">{{playtime_2weeks}}</span> часов за последние две недели </p>-->
+                        <p>Вы проиграли всего: {{allPlayingTime}} часов</p>
+                        <br>
+                        <ul>
+                            За это время вы бы могли:
+                            {{#phrases}}
+                                <li>{{text}}  {{time}} раз</li>
+                            {{/phrases}}
+                        </ul>
                     </div>
                 </div>
             {{/games}}

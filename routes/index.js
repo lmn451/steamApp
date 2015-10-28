@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var strings = require('../core/phrases.json');
 var Cookies = require( "cookies" );
 var steamApi = require('../core/steamapi');
 
@@ -21,10 +21,10 @@ router.get('/', function(req, res, next) {
         var playerGames, playerGamesGotResponse;
         var playerOwnedGames = [], playerOwnedGamesGotResponse;
         var getAllPlayTime, getAllPlayTimeGotResponse;
-        var getBgUrl, getBgUrlGotResponse;
+        var phrases, getBgUrlGotResponse;
         var response = function () {
             if (player && playerGamesGotResponse && playerOwnedGamesGotResponse && playerFriendsGotResponse && getAllPlayTimeGotResponse ) {
-                res.render('index', {title: 'Recent games', player: player, games: playerGames, allPlayingTime: getAllPlayTime,  playerOwnedGames: playerOwnedGames, friends: playerFriends});
+                res.render('index', {title: 'Recent games', player: player, games: playerGames, phrases:phrases, allPlayingTime: getAllPlayTime,  playerOwnedGames: playerOwnedGames, friends: playerFriends});
             }
         };
 
@@ -50,6 +50,12 @@ router.get('/', function(req, res, next) {
         steamApi.getOwnedGames(loginedSteamId, function (games) {
             playerOwnedGames = games;
             getAllPlayTime = games.time;
+            phrases = strings.phrases;
+            for(i in phrases){
+                phrases[i].time = (getAllPlayTime / phrases[i].time).toFixed(0);
+
+            }
+            console.log(phrases);
             getAllPlayTimeGotResponse = true;
             playerOwnedGamesGotResponse = true;
             response();
