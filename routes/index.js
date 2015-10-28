@@ -52,7 +52,7 @@ router.get('/', function(req, res, next) {
             getAllPlayTime = games.time;
             phrases = strings.phrases;
             for(i in phrases){
-                phrases[i].time = (getAllPlayTime / phrases[i].time).toFixed(0);
+                phrases[i].timeown = (getAllPlayTime / phrases[i].time).toFixed(0);
 
             }
             console.log(phrases);

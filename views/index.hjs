@@ -15,9 +15,7 @@
 		<div class="header">
 			<div class="container">
 				<ul class="nav">
-					<li><a href="#">Store</a></li>
-					<li><a href="#">Library</a></li>
-					<li><a href="#">Community</a></li>
+					<li><a href="#">Steamapplication</a></li>
 				</ul>
 				<ul class="user">
 					<li><a href="/"><img class="avatar" src="{{ player.avatarfull }}" alt=""></a></li>
@@ -70,12 +68,12 @@
                     -->
                     <div class="info">
                         <!--<p>Вы играли {{name}} <span class="hours">{{playtime_2weeks}}</span> часов за последние две недели </p>-->
-                        <p>Вы проиграли всего: {{allPlayingTime}} часов</p>
+                        <p>Вы проиграли в общем <span class="hours">{{allPlayingTime}}</span> часов</p>
                         <br>
                         <ul>
                             За это время вы бы могли:
                             {{#phrases}}
-                                <li>{{text}}  {{time}} раз</li>
+                                <li>{{text}}  <span class="hours">{{timeown}}</span> раз</li>
                             {{/phrases}}
                         </ul>
                     </div>
