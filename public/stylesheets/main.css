@@ -180,14 +180,25 @@ table{
 	padding: 5px 15px 5px 10px;
 	box-sizing: border-box;
 }
-.table-header .ri{
+.ri{
 	float: right;
 }
-.table-header .le{
+.le{
 	float: left;
 }
-.table-header .le, .table-header .ri{
+.le, .ri{
 	display: inline-block;
+}
+.table-bottom{
+	display: inline-block;
+	background: rgba(0, 0, 0, .3);
+	width: 240px;
+	height: 30px;
+	padding: 5px 15px 5px 10px;
+	box-sizing: border-box;
+	bottom:0;
+	z-index: 10000;
+	position: absolute;
 }
 td{
 	border-bottom:1px solid #29253D;
@@ -212,7 +223,7 @@ th{
 	width: 230px;
 	left: 0;
 	top: 30px;
-	bottom: 0;
+	bottom: 30px;
 	overflow-y: scroll;
     border-bottom-left-radius: 6px;
 	background: rgba(0, 0, 0, .3);
