@@ -73,7 +73,7 @@
                         <ul>
                             За это время вы бы могли:
                             {{#phrases}}
-                                <li>{{text}}  <span class="hours">{{timeown}}</span> раз</li>
+                                <li><a href="{{url}}">{{text}}</a><span class="hours">{{timeown}}</span> раз</li>
                             {{/phrases}}
                         </ul>
                     </div>

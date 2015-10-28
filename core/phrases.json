@@ -2,31 +2,52 @@
   "phrases": [
     {
       "text":"Пройти базовый курс веб-дизайна",
-      "time":51
+      "time":51,
+      "url":"https://teamtreehouse.com/tracks/web-design"
+    },{
+      "text":"Пройти курс по Ruby",
+      "url":"https://teamtreehouse.com/tracks/learn-ruby",
+      "time":13
     },{
       "text":"Пройти курс Ruby on Rails  разработки",
+      "url":"https://teamtreehouse.com/tracks/rails-development",
       "time":42
     },{
       "text":"Пройти курс фронт-энд рабзработки",
+      "url":"https://teamtreehouse.com/tracks/front-end-web-development",
       "time":58
     },{
       "text":"Пройти курс iOS разработки с использованием Objective-C",
+      "url":"https://teamtreehouse.com/tracks/ios-development-with-objectivec",
       "time":32
     },{
       "text":"Пройти курс PHP разработки",
+      "url":"https://teamtreehouse.com/tracks/php-development",
       "time":31
     },{
       "text":"Пройти курс Android разработки",
+      "url":"https://teamtreehouse.com/tracks/android-development",
       "time":38
     },{
       "text":"Пройти курс WordPress разработки",
+      "url":"https://teamtreehouse.com/tracks/wordpress-development",
       "time":21
     },{
       "text":"Пройти курс по Python",
+      "url":"https://teamtreehouse.com/tracks/learn-python",
       "time":16
     },{
       "text":"Пройти курс iOS разработки с использованием Swift",
+      "url":"https://teamtreehouse.com/tracks/ios-development-with-swift",
       "time":19
+    },{
+      "text":"Пройти курс изучения Java",
+      "url":"https://teamtreehouse.com/tracks/learn-java",
+      "time":13
+    },{
+      "text":"Пройти курс Full-Stack JavaScript",
+      "url":"https://teamtreehouse.com/tracks/fullstack-javascript",
+      "time":33
     }
   ]
 }
