@@ -203,8 +203,10 @@ th{
 	overflow: hidden;
 	min-height:400px;
 }
-
-.content .left-menu{
+.left-menu{
+	float: left;
+}
+.content .table{
 	position: absolute;
 	padding: 0px 0 10px 10px;
 	width: 230px;
@@ -217,24 +219,21 @@ th{
 	font-size: 14px;
 
 }
-.content .left-menu::-webkit-scrollbar {
+.content .table::-webkit-scrollbar {
 	width: 12px;  /* for vertical scrollbars */
 }
-
-.content .left-menu::-webkit-scrollbar-track {
+.content .table::-webkit-scrollbar-track {
 	background: rgba(0, 0, 0, 0.1);
 }
-
-.content .left-menu::-webkit-scrollbar-thumb {
+.content .table::-webkit-scrollbar-thumb {
 	background: rgba(0, 0, 0, 0.5);
 }
-
-.content .left-menu::-webkit-scrollbar-thumb{
+.content .table::-webkit-scrollbar-thumb{
 	border-width:1px 1px 1px 2px;
 	border-color: #777;
 	background: rgba(94, 86, 117,.3);
 }
-.content .left-menu::-webkit-scrollbar-track{
+.content .table::-webkit-scrollbar-track{
 	border-width:0;
 }
 .content .container{
@@ -245,7 +244,6 @@ th{
 	margin-top: 30px;
 	margin-left: 48px;
 }
-
 .content .game-icon{
     width: 48px;
     height: 48px;
@@ -264,7 +262,7 @@ th{
 }
 .content ul li a{
 	color:white;
-	padding: 0px 3px !important;
+	padding: 0 3px !important;
 	text-decoration: none;
 }
 .content ul li a:hover{
