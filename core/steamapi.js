@@ -50,6 +50,7 @@ this.getRecentlyPlayedGames = function(steamid, callback){
 this.getOwnedGames = function(steamid, callback){
     var games = [];
     var getAllTime = 0;
+    var matches = [];
     var urlSchema = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + key + '&steamid=' + steamid;
     rest.get(urlSchema).on('complete', function(data) {
         if(data.response && data.response.games) {
@@ -68,6 +69,13 @@ this.getOwnedGames = function(steamid, callback){
                     games.push(game);
                 }
             }
+            /*rest.get('https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=' + key + '&account_id=' + steamid).on('complete', function(data) {
+                if (data && data.result){
+                    data.result.matches.forEach(function (match, index, array) {
+                        matches.push(match.match_id);
+                    });
+                }
+            });*/
             rest.get('http://api.steampowered.com/ISteamApps/GetAppList/v0001').on('complete', function(data) {
                 games.forEach(function (game, index, array) {
                     game.name = data.applist.apps.app.filter(function(v){ return v["appid"] == game.appid; })[0].name;

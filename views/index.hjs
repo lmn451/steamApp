@@ -67,6 +67,8 @@
                           <label for="tab1">Программирование</label>
                           <div id="tab-content1" class="tab-content">
                             <div class="animated  fadeInRight">
+                            <p><span class="hours">За время, которое ты проиграл ты бы мог:</span></p>
+                            <br>
                             {{#phrases}}
                                 <a href="{{url}}">{{text}}</a><span class="hours">{{timeown}}</span> раз <br>
                             {{/phrases}}

@@ -55,7 +55,6 @@ router.get('/', function(req, res, next) {
                 phrases[i].timeown = (getAllPlayTime / phrases[i].time).toFixed(0);
 
             }
-            console.log(phrases);
             getAllPlayTimeGotResponse = true;
             playerOwnedGamesGotResponse = true;
             response();
