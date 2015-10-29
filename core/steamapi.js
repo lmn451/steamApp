@@ -52,7 +52,7 @@ this.getRecentlyPlayedGames = function(steamid, callback){
 
 this.getOwnedGames = function(steamid, callback){
     var games = [];
-    var totalTime = 0;
+    var totaltime = 0;
     var urlSchema = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + key + '&steamid=' + steamid;
     rest.get(urlSchema).on('complete', function(data) {
         if(data.response && data.response.games) {
@@ -63,7 +63,7 @@ this.getOwnedGames = function(steamid, callback){
                 if (data.response.games[i].playtime_forever) {
                     gamesFound++;
                     var gameFound = data.response.games[i];
-                    totalTime += gameFound.playtime_forever;
+                    totaltime += gameFound.playtime_forever;
 
                     var game = {};
                     game.appid = gameFound.appid;
@@ -76,7 +76,8 @@ this.getOwnedGames = function(steamid, callback){
                     game.name = data.applist.apps.app.filter(function(v){ return v["appid"] == game.appid; })[0].name;
                     gamesFetched++;
                     if(gamesFetched==gamesFound){
-                        games.totaltime = (totalTime/60).toFixed(2);
+                        games.totaltime += dotagameobject.playtime_forever;
+                        games.totaltime = (totaltime/60).toFixed(2);
                         console.log('GetTotalTime: ' + games.totaltime);
 
                         games.push(dotagameobject);
