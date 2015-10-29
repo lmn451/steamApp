@@ -39,7 +39,7 @@ this.getRecentlyPlayedGames = function(steamid, callback){
                 if(data.response.games[x].appid === 570){
                     dotagameobject.appid = 570;
                     dotagameobject.name = "Dota 2";
-                    dotagameobject.playtime_forever = data.response.games[x].playtime_forever;
+                    dotagameobject.playtime_forever = (data.response.games[x].playtime_forever/60).toFixed(2);
                 }
             }
             callback(data.response.games);
