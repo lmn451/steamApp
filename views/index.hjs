@@ -70,7 +70,7 @@
                             <p><span class="hours">За время, которое ты проиграл ты бы мог:</span></p>
                             <br>
                             {{#phrases}}
-                                <a href="{{url}}">{{text}}</a><span class="hours">{{timeown}}</span> раз <br>
+                                <a href="{{url}}" alt="Это займёт {{timeown}} часов">{{text}}</a><span class="hours">{{timeown}}</span> раз <br>
                             {{/phrases}}
                             </div>
                           </div>
