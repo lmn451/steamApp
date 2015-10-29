@@ -1,7 +1,6 @@
 var rest = require('restler');
 key = 'FF183132FD171CE0F9853928CDCE1C69';
-var games = [];
-var getAllTime = 0;
+var dotagameobject = {"playtime_forever" : 0};
 
 this.getPlayerSummaries = function(steamids, callback){
     var url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key="+key+"&steamids="+steamids.join(',');
@@ -34,18 +33,13 @@ this.getRecentlyPlayedGames = function(steamid, callback){
         if(data.response && data.response.games) {
             console.log("GetRecentlyPlayedGames: " + data.response.total_count + " games");
             for (x in data.response.games) {
-                var gameTime = data.response.games[0].playtime_forever / 60 + "";
-                data.response.games[x].playtime_forever = gameTime.substr(0,(gameTime.indexOf(".") + 3));
-
-                var gameTime = data.response.games[0].playtime_2weeks / 60 + "";
-                data.response.games[x].playtime_2weeks = gameTime.substr(0,(gameTime.indexOf(".") + 3));
+                /*data.response.games[x].playtime_forever = (data.response.games[0].playtime_forever / 60).toFixed(2);
+                data.response.games[x].playtime_2weeks = (data.response.games[0].playtime_2weeks / 60).toFixed(2);*/
 
                 if(data.response.games[x].appid === 570){
-                    var game = {};
-                    game.appid = data.response.games[x].appid;
-                    game.playtime_forever = (data.response.games[x].playtime_forever / 60).toFixed(2);
-                    getAllTime += game.playtime_forever;
-                    games.push(game);
+                    dotagameobject.appid = 570;
+                    dotagameobject.name = "Dota 2";
+                    dotagameobject.playtime_forever = data.response.games[x].playtime_forever;
                 }
             }
             callback(data.response.games);
@@ -57,7 +51,8 @@ this.getRecentlyPlayedGames = function(steamid, callback){
 };
 
 this.getOwnedGames = function(steamid, callback){
-
+    var games = [];
+    var totalTime = 0;
     var urlSchema = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + key + '&steamid=' + steamid;
     rest.get(urlSchema).on('complete', function(data) {
         if(data.response && data.response.games) {
@@ -68,7 +63,7 @@ this.getOwnedGames = function(steamid, callback){
                 if (data.response.games[i].playtime_forever) {
                     gamesFound++;
                     var gameFound = data.response.games[i];
-                    getAllTime += gameFound.playtime_forever;
+                    totalTime += gameFound.playtime_forever;
 
                     var game = {};
                     game.appid = gameFound.appid;
@@ -76,25 +71,21 @@ this.getOwnedGames = function(steamid, callback){
                     games.push(game);
                 }
             }
-           /* rest.get('https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=' + key + '&account_id=' + steamid).on('complete', function(data) {
-                if (data && data.result){
-                    data.result.matches.forEach(function (match, index, array) {
-                        matches.push(match.match_id);
-                    });
-                }
-            });*/
             rest.get('http://api.steampowered.com/ISteamApps/GetAppList/v0001').on('complete', function(data) {
                 games.forEach(function (game, index, array) {
                     game.name = data.applist.apps.app.filter(function(v){ return v["appid"] == game.appid; })[0].name;
                     gamesFetched++;
                     if(gamesFetched==gamesFound){
+                        games.totaltime = (totalTime/60).toFixed(2);
+                        console.log('GetTotalTime: ' + games.totaltime);
+
+                        games.push(dotagameobject);
                         games.sort(compareObjectsByTime);
 
-                        games.time = (getAllTime/60).toFixed(2);
                         callback(games);
-
                         console.log("GetApps: " + gamesFetched);
-                        console.log('GetAllTime: ' + games.time);
+
+                        dotagameobject = {};
                     }
                 });
             });

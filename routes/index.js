@@ -14,21 +14,31 @@ router.get('/', function(req, res, next) {
 
     var loginedSteamId = cookies.get("steamid");
 
-    if (loginedSteamId){
+    if (!loginedSteamId) {
+        res.render('landing', {host: req.headers.host, protocol: req.protocol});
+    } else {
         var player;
 
-        var playerFriends,playerFriendsGotResponse;
+        var playerFriends, playerFriendsGotResponse;
         var playerGames, playerGamesGotResponse;
         var playerOwnedGames = [], playerOwnedGamesGotResponse;
-        var getAllPlayTime, getAllPlayTimeGotResponse;
+        var getTotalTime, getTotalTimeGotResponse;
         var phrases, getBgUrlGotResponse;
         var response = function () {
-            if (player && playerGamesGotResponse && playerOwnedGamesGotResponse && playerFriendsGotResponse && getAllPlayTimeGotResponse ) {
-                res.render('index', {title: 'Recent games', player: player, games: playerGames, phrases:phrases, allPlayingTime: getAllPlayTime,  playerOwnedGames: playerOwnedGames, friends: playerFriends});
+            if (player && playerGamesGotResponse && playerOwnedGamesGotResponse && playerFriendsGotResponse && getTotalTimeGotResponse) {
+                res.render('index', {
+                    title: 'Recent games',
+                    player: player,
+                    games: playerGames,
+                    phrases: phrases,
+                    totalTime: getTotalTime,
+                    playerOwnedGames: playerOwnedGames,
+                    friends: playerFriends
+                });
             }
         };
 
-        steamApi.getPlayerSummaries([loginedSteamId], function(players){
+        steamApi.getPlayerSummaries([loginedSteamId], function (players) {
             player = players[0];
             response();
         });
@@ -41,7 +51,7 @@ router.get('/', function(req, res, next) {
             response();
         });
 
-        steamApi.getFriendList(loginedSteamId,function(friends){
+        steamApi.getFriendList(loginedSteamId, function (friends) {
             playerFriends = friends;
             playerFriendsGotResponse = true;
             response();
@@ -49,20 +59,18 @@ router.get('/', function(req, res, next) {
 
         steamApi.getOwnedGames(loginedSteamId, function (games) {
             playerOwnedGames = games;
-            getAllPlayTime = games.time;
+            getTotalTime = games.totaltime;
             phrases = strings.phrases;
-            for(i in phrases){
-                phrases[i].timeown = (getAllPlayTime / phrases[i].time).toFixed(0);
+            for (i in phrases) {
+                phrases[i].timeown = (getTotalTime / phrases[i].time).toFixed(0);
 
             }
-            getAllPlayTimeGotResponse = true;
+            getTotalTimeGotResponse = true;
             playerOwnedGamesGotResponse = true;
             response();
         });
 
 
-    } else{
-        res.render('landing', { host: req.headers.host, protocol: req.protocol });
     }
 
 });

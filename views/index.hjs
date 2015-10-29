@@ -55,7 +55,7 @@
 		        </div>
 		        <div class="table-bottom">
                     <div class="le">Total:</div>
-                    <div class="ri"><span class="hours">{{allPlayingTime}}</span></div>
+                    <div class="ri"><span class="hours">{{totalTime}}</span></div>
 		        </div>
 		    </div>
             {{#games}}
