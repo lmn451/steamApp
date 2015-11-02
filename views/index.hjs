@@ -48,7 +48,7 @@
 		                {{#playerOwnedGames}}
                             <tr>
                                 <td>{{name}}</td>
-                                <td><span class="hours">{{playtime_forever}}</span></td>
+                                <td class="hours">{{playtime_forever}}</td>
                             </tr>
                         {{/playerOwnedGames}}
                     </table>

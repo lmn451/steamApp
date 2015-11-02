@@ -1,6 +1,6 @@
 var rest = require('restler');
 key = 'FF183132FD171CE0F9853928CDCE1C69';
-var dotagameobject = {"playtime_forever" : 0};
+var dotagameobject = {};
 
 this.getPlayerSummaries = function(steamids, callback){
     var url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key="+key+"&steamids="+steamids.join(',');
@@ -33,9 +33,6 @@ this.getRecentlyPlayedGames = function(steamid, callback){
         if(data.response && data.response.games) {
             console.log("GetRecentlyPlayedGames: " + data.response.total_count + " games");
             for (x in data.response.games) {
-                /*data.response.games[x].playtime_forever = (data.response.games[0].playtime_forever / 60).toFixed(2);
-                data.response.games[x].playtime_2weeks = (data.response.games[0].playtime_2weeks / 60).toFixed(2);*/
-
                 if(data.response.games[x].appid === 570){
                     dotagameobject.appid = 570;
                     dotagameobject.name = "Dota 2";
@@ -67,7 +64,7 @@ this.getOwnedGames = function(steamid, callback){
 
                     var game = {};
                     game.appid = gameFound.appid;
-                    game.playtime_forever = (gameFound.playtime_forever / 60).toFixed(2);
+                    game.playtime_forever = toHours(gameFound.playtime_forever);
                     games.push(game);
                 }
             }
@@ -76,16 +73,20 @@ this.getOwnedGames = function(steamid, callback){
                     game.name = data.applist.apps.app.filter(function(v){ return v["appid"] == game.appid; })[0].name;
                     gamesFetched++;
                     if(gamesFetched==gamesFound){
-                        games.totaltime += dotagameobject.playtime_forever;
-                        games.totaltime = (totaltime/60).toFixed(2);
+                        if(dotagameobject.playtime_forever){
+                            games.totaltime += dotagameobject.playtime_forever;
+                        }
+                        console.log(totaltime);
+                        games.totaltime = toHours(totaltime);
                         console.log('GetTotalTime: ' + games.totaltime);
 
-                        games.push(dotagameobject);
+                        if(dotagameobject == true){
+                            games.push(dotagameobject);
+                        }
                         games.sort(compareObjectsByTime);
 
                         callback(games);
                         console.log("GetApps: " + gamesFetched);
-
                         dotagameobject = {};
                     }
                 });
@@ -95,6 +96,11 @@ this.getOwnedGames = function(steamid, callback){
     function compareObjectsByTime (x, y){
         return (parseInt (y ["playtime_forever"]) - parseInt (x ["playtime_forever"]))
     }
+    function toHours (s){
+        return ((s / 60).toFixed(1));
+    }
+
+
 };
 
 this.getLogoUrl = function (appid, logohash) {

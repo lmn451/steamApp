@@ -217,6 +217,9 @@ th{
 .left-menu{
 	float: left;
 }
+.table table{
+	width: 100%;
+}
 .content .table{
 	position: absolute;
 	padding: 0px 0 10px 10px;
@@ -228,7 +231,9 @@ th{
     border-bottom-left-radius: 6px;
 	background: rgba(0, 0, 0, .3);
 	font-size: 14px;
-
+}
+td.hours{
+	text-align: center;
 }
 .content .table::-webkit-scrollbar {
 	width: 12px;  /* for vertical scrollbars */
@@ -286,7 +291,7 @@ th{
     color: #7b85ab;
     margin-top: -6px;
 }
-span.hours{
+.hours{
     font-weight: 700;
 }
 .else{
